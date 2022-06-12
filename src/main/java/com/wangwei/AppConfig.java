@@ -1,11 +1,14 @@
 package com.wangwei;
 
+import com.springmybatis.WangWeiBatisScan;
+import com.springmybatis.WangWeiImportBeanDefinitionRegistrar;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,6 +19,7 @@ import java.io.InputStream;
  */
 @ComponentScan("com.wangwei")
 @Configuration
+@WangWeiBatisScan("com.wangwei.mapper")
 public class AppConfig {
 
     @Bean
