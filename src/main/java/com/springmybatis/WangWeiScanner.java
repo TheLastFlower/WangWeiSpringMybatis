@@ -1,6 +1,8 @@
 package com.springmybatis;
 
+import com.wangwei.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.annotation.ClassPathBeanDefinitionScanner;
@@ -30,6 +32,11 @@ public class WangWeiScanner extends ClassPathBeanDefinitionScanner {
     @Override
     protected Set<BeanDefinitionHolder> doScan(String... basePackages) {
         Set<BeanDefinitionHolder> beanDefinitionHolders = super.doScan(basePackages);
+        for (BeanDefinitionHolder beanDefinitionHolder :beanDefinitionHolders){
+            BeanDefinition beanDefinition = beanDefinitionHolder.getBeanDefinition();
+            beanDefinition.getConstructorArgumentValues().addGenericArgumentValue(beanDefinition.getClass());
+            beanDefinition.setBeanClassName(WangWeiFactoryBean.class.getName());
+        }
 
         return beanDefinitionHolders;
     }

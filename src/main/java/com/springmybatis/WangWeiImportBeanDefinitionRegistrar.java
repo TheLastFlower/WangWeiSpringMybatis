@@ -37,11 +37,11 @@ public class WangWeiImportBeanDefinitionRegistrar implements ImportBeanDefinitio
 
         // 用BeanDefinition的方式 定义 WangWeiFactoryBean
         // 有点看不懂了
-        AbstractBeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition().getBeanDefinition();
-        beanDefinition.setBeanClass(WangWeiFactoryBean.class);
-        // 指定构造方法的入参 不用Spring自己找了
-        beanDefinition.getConstructorArgumentValues().addGenericArgumentValue(UserMapper.class);
-        registry.registerBeanDefinition("userMapper", beanDefinition);
+//        AbstractBeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition().getBeanDefinition();
+//        beanDefinition.setBeanClass(WangWeiFactoryBean.class);
+//        // 指定构造方法的入参 不用Spring自己找了
+//        beanDefinition.getConstructorArgumentValues().addGenericArgumentValue(UserMapper.class);
+//        registry.registerBeanDefinition("userMapper", beanDefinition);
     }
 
 
